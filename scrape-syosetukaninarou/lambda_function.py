@@ -62,7 +62,7 @@ def lambda_handler(event, context):
     logger.info(event)
     logger.info(f'event {event}')
     url = BASE_URL + event['url']
-    novel = get_novel_with_api(url)
+    novel = get_novel_with_api(event['url'])
     document = extract_attributes(novel)
     id_ = create_id(url)
     document['key'] = id_
